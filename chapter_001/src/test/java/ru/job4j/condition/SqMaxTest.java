@@ -23,4 +23,9 @@ public class SqMaxTest {
         int out = SqMax.max(4,3,1,2);
         Assert.assertEquals(out, 4);
     }
+    @Test
+    public void maxFive() {
+        int out = SqMax.max(4,3,5,2);
+        Assert.assertEquals(out, 5);
+    }
 }
