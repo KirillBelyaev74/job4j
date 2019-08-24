@@ -4,7 +4,6 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class FindLoopTest {
-
     @Test
     public void whenArrayHas5Then0() {
         FindLoop find = new FindLoop();
@@ -17,8 +16,8 @@ public class FindLoopTest {
     @Test
     public void whenArrayHas2Then2() {
         FindLoop find = new FindLoop();
-        int[] input = new int[] {4, 7, 2};
-        int value = 2;
+        int[] input = new int[] {4, 7, 9};
+        int value = 9;
         int result = find.indexOf(input, value);
         int expect = 2;
         assertThat(result, is(expect));
