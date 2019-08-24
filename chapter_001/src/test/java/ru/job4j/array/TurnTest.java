@@ -22,4 +22,12 @@ public class TurnTest {
         int[] expect = new int[] {1, 2, 3, 4, 5};
         assertThat(result, is(expect));
     }
+    @Test
+    public void whenTurn() {
+        Turn turnTwo = new Turn();
+        int[] input = new int[] {5, 4, 3, 2, 1, 0};
+        int[] result = turnTwo.back(input);
+        int[] expect = new int[] {0, 1, 2, 3, 4, 5};
+        assertThat(result, is(expect));
+    }
 }
