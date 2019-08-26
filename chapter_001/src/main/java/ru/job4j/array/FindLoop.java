@@ -20,4 +20,15 @@ public class FindLoop {
         }
         return rst;
     }
+    public int[] sort(int[] data) {
+        for(int index = 0; index < data.length - 1; index++) {
+            int x = this.indexOf(data, index + 1, index, data.length - 1);
+            if(data[index] > data[x]) {
+                int min = data[x];
+                data[x] = data[index];
+                data[index] = min;
+            }
+        }
+        return data;
+    }
 }

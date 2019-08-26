@@ -5,7 +5,6 @@ public class ArrayChar {
         boolean result = true;
         char[] pref = prefix.toCharArray();
         char[] wrd = word.toCharArray();
-       // result = word.startsWith(prefix);
         for(int index = 0; index < pref.length;  index++) {
             if(pref[index] != wrd[index]) {
                 result = false;
