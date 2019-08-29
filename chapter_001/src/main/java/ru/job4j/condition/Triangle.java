@@ -29,7 +29,7 @@ public class Triangle {
      */
     private boolean exist(double a, double c, double b) {
         boolean result =  false;
-        if((a + c) > b && (c + b) > a && (a + b) > c) {
+        if ((a + c) > b && (c + b) > a && (a + b) > c) {
             result = true;
         }
         return result;
@@ -53,7 +53,7 @@ public class Triangle {
         double c = new Point().distance(x1, y1, x3, y3);
         double p = period(a, b, c);
         if (this.exist(a, b, c)) {
-            rsl = Math.sqrt(p *(p - a) * (p - b) * (p - c));
+            rsl = Math.sqrt(p * (p - a) * (p - b) * (p - c));
         }
         return rsl;
     }
