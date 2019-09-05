@@ -78,6 +78,7 @@ public class Logic {
             }
             if(counterOut == this.size || counterIn == this.size) {
                 result = true;
+                break;
             }
         }
         return result;
