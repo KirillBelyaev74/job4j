@@ -1,6 +1,11 @@
 package ru.job4j.array;
 
 public class MatrixCheck {
+    /**
+     * Проверяет идентичность элементов в массиве по диагонали
+     * @param data - массив который нужно проверить
+     * @return - возвращает true or false
+     */
     public boolean mono(boolean[][] data) {
         boolean result = true;
             for (int index = 0; index < data.length - 1; index++) {

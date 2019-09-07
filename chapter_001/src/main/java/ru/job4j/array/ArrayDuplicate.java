@@ -3,6 +3,11 @@ package ru.job4j.array;
 import java.util.Arrays;
 
 public class ArrayDuplicate {
+    /**
+     * Удаляет дупликаты из массива
+     * @param input - массив который нужно проверить
+     * @return - проверенный массив
+     */
     public String[] duplicateDelite(String[] input) {
         int unique = input.length;
         for (int out = 0; out < unique; out++) {

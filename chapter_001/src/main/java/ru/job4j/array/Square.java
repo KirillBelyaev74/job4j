@@ -1,6 +1,11 @@
 package ru.job4j.array;
 
 public class Square {
+    /**
+     * Перемножает само на себя
+     * @param bound - число до которого нужно перемножить
+     * @return - массив с перемножеными числами
+     */
     public int[] calculate(int bound) {
         int[] rst = new int[bound];
         int x = 0;

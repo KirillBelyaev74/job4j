@@ -1,6 +1,12 @@
 package ru.job4j.array;
 
 public class ArrayMax {
+    /**
+     * Объединяет два массива в один по возростанию
+     * @param inputOne - первый массив
+     * @param inputTwo - второй массив
+     * @return - объеденный массив
+     */
     public int[] sum(int[] inputOne, int[] inputTwo) {
         int x = 0;
         int[] result = new int[inputOne.length + inputTwo.length];
