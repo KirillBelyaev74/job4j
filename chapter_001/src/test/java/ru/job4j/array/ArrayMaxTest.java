@@ -5,21 +5,43 @@ import static org.junit.Assert.assertThat;
 
 public class ArrayMaxTest {
     @Test
-    public void whenSumOfTwoArray() {
-        ArrayMax arraymax = new ArrayMax();
-        int[] inputOne = new int[] {1, 2, 4};
-        int[] inputTwo = new int[] {4, 8, 2};
-        int[] result = arraymax.sum(inputOne, inputTwo);
-        int[] expect = {1, 2, 2, 4, 4, 8};
+    public void whenBothEmpty() {
+        ArrayMax arrayMaxone = new ArrayMax();
+        int[] expect = new int[0];
+        int[] result = arrayMaxone.sum(
+                new int[0],
+                new int[0]
+        );
         assertThat(result, is(expect));
     }
     @Test
-    public void whenSumOfTwoArrayOne() {
-        ArrayMax arraymax = new ArrayMax();
-        int[] inputOne = new int[] {1, 7, 5, 3};
-        int[] inputTwo = new int[] {1, 8, 2, 2};
-        int[] result = arraymax.sum(inputOne, inputTwo);
-        int[] expect = {1, 1, 2, 2, 3, 5, 7, 8};
+    public void whenAscOrder() {
+        ArrayMax algo = new ArrayMax();
+        int[] expect = {1, 2, 3, 4};
+        int[] result = algo.sum(
+                new int[] {1, 2},
+                new int[] {3, 4}
+        );
+        assertThat(result, is(expect));
+    }
+    @Test
+    public void whenLeftLess() {
+        ArrayMax algo = new ArrayMax();
+        int[] expect = {1, 2, 3, 3, 4};
+        int[] result = algo.sum(
+                new int[] {1, 2, 3},
+                new int[] {3, 4}
+        );
+        assertThat(result, is(expect));
+    }
+    @Test
+    public void whenLeftGreat() {
+        ArrayMax algo = new ArrayMax();
+        int[] expect = {1, 2, 3, 4, 4};
+        int[] result = algo.sum(
+                new int[] {1, 2},
+                new int[] {3, 4, 4}
+        );
         assertThat(result, is(expect));
     }
 }
