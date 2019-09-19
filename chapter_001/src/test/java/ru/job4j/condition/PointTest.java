@@ -14,19 +14,28 @@ public class PointTest {
         System.out.println(String.format("Result is %s", result));
         assertThat(result, is(10D));
     }
-
-    @Test
-    public void whenCheckItself() {
-        Point point = new Point(0, 0);
-        double result = point.distance(point);
-        assertThat(result, is(0D));
-    }
-
     @Test
     public void whenShowInfo() {
         Point first = new Point(1, 1);
-        first.info();
         Point second = new Point(2, 2);
+        double result = first.distance(second);
+        first.info();
         second.info();
+        System.out.println(String.format("Result is %s", result));
+        assertThat(result, is(1D));
+    }
+    @Test
+    public void when1And2() {
+        Point first = new Point(1, 1, 1);
+        Point second = new Point(2, 2, 2);
+        double result = Math.round(first.distance3d(second) * 100.0) / 100.0;
+        assertThat(result, is(1.73D));
+    }
+    @Test
+    public void when1And5() {
+        Point first = new Point(1, 1, 1);
+        Point second = new Point(5, 5, 5);
+        double result = Math.round(first.distance3d(second) * 100.0) / 100.0;
+        assertThat(result, is(6.93D));
     }
 }
