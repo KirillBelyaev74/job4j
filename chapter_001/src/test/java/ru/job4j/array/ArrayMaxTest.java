@@ -44,4 +44,11 @@ public class ArrayMaxTest {
         );
         assertThat(result, is(expect));
     }
+    @Test
+    public void whenGreat() {
+        ArrayMax algo = new ArrayMax();
+        int[] expect = {7, 8, 9, 10, 11, 12};
+        int[] result = algo.sum( new int[] {8, 10, 12}, new int[] {7, 9, 11} );
+        assertThat(result, is(expect));
+    }
 }

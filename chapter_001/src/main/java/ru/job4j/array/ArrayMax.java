@@ -13,9 +13,22 @@ public class ArrayMax {
         int two = 0;
         int[] result = new int[inputOne.length + inputTwo.length];
         while (x < result.length) {
-            if (x < inputOne.length) {
+            if (one == inputOne.length  && two < inputTwo.length) {
+                result[x++] = inputTwo[two++];
+            } else if (two == inputTwo.length && one < inputOne.length) {
                 result[x++] = inputOne[one++];
-            } else {
+            } else if (inputOne[one] < inputTwo[two]) {
+                result[x++] = inputOne[one];
+                if (one < inputOne.length) {
+                    one++;
+                }
+            } else if (inputTwo[two] < inputOne[one]) {
+                result[x++] = inputTwo[two];
+                if (two < inputTwo.length) {
+                    two++;
+                }
+            } else if (inputOne[one] == inputTwo[two]) {
+                result[x++] = inputOne[one++];
                 result[x++] = inputTwo[two++];
             }
         }
