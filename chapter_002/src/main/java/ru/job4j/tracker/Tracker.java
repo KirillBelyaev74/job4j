@@ -21,7 +21,7 @@ public class Tracker {
     }
     /**
      * Метод удаляет найденную заявку
-     * @param id - id заявки, которую нужно удалить
+     * @param id - id заявки которую нужно удалить
      * @return - true or false
      */
     public boolean delete(String id) {
