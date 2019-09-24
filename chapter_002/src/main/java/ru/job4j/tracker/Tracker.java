@@ -1,4 +1,5 @@
 package ru.job4j.tracker;
+import java.util.Arrays;
 import java.util.Random;
 public class Tracker {
     /**
@@ -29,6 +30,7 @@ public class Tracker {
             if (this.items[index].getId().equals(id)) {
                 System.arraycopy(this.items, index + 1, this.items, index, this.position--);
                 result = true;
+                break;
             }
         }
         return result;
@@ -45,6 +47,7 @@ public class Tracker {
             if (this.items[index].getId().equals(id)) {
                 this.items[index] = item;
                 result = true;
+                break;
             }
         }
         return result;
@@ -54,11 +57,7 @@ public class Tracker {
      * @return - массив без null элементов
      */
     public Item[] findAll() {
-        Item[] result = new Item[this.position];
-        for (int index = 0; index != this.position; index++) {
-            result[index] = this.items[index];
-        }
-        return result;
+        return Arrays.copyOf(this.items, this.position);
     }
     /**
      * Метод находит заявку по имени
@@ -87,6 +86,7 @@ public class Tracker {
         for (int index = 0; index != this.position; index++) {
             if (this.items[index].getId().equals(id)) {
                 item = this.items[index];
+                break;
             }
         }
         return item;
