@@ -1,6 +1,8 @@
 package ru.job4j.tracker;
-
+/**
+ * Интерфейс
+ */
 public interface UserAction {
-    public boolean execute(Input input, Tracker tracker);
-    public String name();
+    boolean execute(Input input, Tracker tracker);
+    String name();
 }
