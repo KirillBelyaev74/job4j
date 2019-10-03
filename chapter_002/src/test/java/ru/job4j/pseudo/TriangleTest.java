@@ -1,23 +1,21 @@
 package ru.job4j.pseudo;
-
 import org.junit.Test;
-import ru.job4j.stragery.Square;
-
+import ru.job4j.stragery.Triangle;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class TriangleTest {
     @Test
     public void whenDrawSquare() {
-        Square square = new Square();
+        Triangle square = new Triangle();
         assertThat(
                 square.draw(),
                 is(
                         new StringBuilder()
-                                .append("   *   ")
-                                .append("  ***  ")
-                                .append(" ***** ")
-                                .append("*******")
+                                .append("   *   \n")
+                                .append("  ***  \n")
+                                .append(" ***** \n")
+                                .append("*******\n")
                                 .toString()
                 )
         );

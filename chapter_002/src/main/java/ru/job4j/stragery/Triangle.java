@@ -1,12 +1,12 @@
 package ru.job4j.stragery;
-
 public class Triangle implements Shape {
     public String draw() {
         StringBuilder pic = new StringBuilder();
-        pic.append("   *   ");
-        pic.append("  ***  ");
-        pic.append(" ***** ");
-        pic.append("*******");
+        String ln = System.lineSeparator();
+        pic.append("   *   \n");
+        pic.append("  ***  \n");
+        pic.append(" ***** \n");
+        pic.append("*******\n");
         return pic.toString();
     }
 }
