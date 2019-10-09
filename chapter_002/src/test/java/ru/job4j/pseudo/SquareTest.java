@@ -14,7 +14,7 @@ public class SquareTest {
                                 .append("+++++++\n")
                                 .append("+     +\n")
                                 .append("+     +\n")
-                                .append("+++++++\n")
+                                .append("+++++++")
                                 .toString()
                 )
         );

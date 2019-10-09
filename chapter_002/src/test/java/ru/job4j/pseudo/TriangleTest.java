@@ -12,10 +12,9 @@ public class TriangleTest {
                 square.draw(),
                 is(
                         new StringBuilder()
-                                .append("   *   \n")
-                                .append("  ***  \n")
-                                .append(" ***** \n")
-                                .append("*******\n")
+                                .append("  ^  \n")
+                                .append(" ^ ^ \n")
+                                .append("^^^^^")
                                 .toString()
                 )
         );
