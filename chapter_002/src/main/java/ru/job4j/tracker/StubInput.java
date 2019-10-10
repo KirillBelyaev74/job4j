@@ -11,4 +11,7 @@ public class StubInput implements Input {
     public int askInt(String question) {
         return Integer.parseInt(numberMenu[this.position++]);
     }
+    public int askInt(String question, int max) {
+        return askInt(question);
+    }
 }
