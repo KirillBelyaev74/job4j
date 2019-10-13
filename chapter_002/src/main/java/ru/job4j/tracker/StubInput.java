@@ -14,4 +14,7 @@ public class StubInput implements Input {
     public int askInt(String question, int max) {
         return askInt(question);
     }
+    public String askStr(String question) {
+        return question;
+    }
 }

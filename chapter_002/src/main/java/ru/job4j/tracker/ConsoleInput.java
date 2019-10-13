@@ -22,4 +22,7 @@ public class ConsoleInput implements Input {
         }
         return select;
     }
+    public String askStr(String question) {
+        return question;
+    }
 }
