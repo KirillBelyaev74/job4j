@@ -9,12 +9,12 @@ public class StubInput implements Input {
         this.numberMenu = numberMenu;
     }
     public int askInt(String question) {
-        return Integer.parseInt(numberMenu[this.position++]);
+        return Integer.parseInt(askStr(question));
     }
     public int askInt(String question, int max) {
         return askInt(question);
     }
     public String askStr(String question) {
-        return question;
+        return numberMenu[position++];
     }
 }

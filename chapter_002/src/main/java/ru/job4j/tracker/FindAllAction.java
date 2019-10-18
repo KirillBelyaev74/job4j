@@ -3,12 +3,12 @@ package ru.job4j.tracker;
 public class FindAllAction implements UserAction {
     @Override
     public String name() {
-        return "Find all.";
+        return "=====Find all Items=====";
     }
     @Override
     public boolean execute(Input input, Tracker tracker) {
         for (Item item : tracker.findAll()) {
-            System.out.println(String.format("%s %s", item.getId(), item.getName()));
+            System.out.println(String.format("%s, %s", item.getName(), item.getId()));
         }
         return true;
     }

@@ -12,17 +12,21 @@ public class ConsoleInput implements Input {
      * @return - введенный пользователем пункт меню
      */
     public int askInt(String question) {
-        System.out.println(question);
-        return scanner.nextInt();
+        return Integer.parseInt(askStr(question));
     }
     public int askInt(String question, int max) {
         int select = askInt(question);
-        if (select < 0 || select >= max) {
+        if (!this.check(select, max)) {
             throw new IllegalStateException(String.format("Out of about %s > [0, %s]", select, max));
         }
         return select;
     }
     public String askStr(String question) {
-        return question;
+        System.out.println(question);
+        return this.scanner.nextLine();
     }
+    public boolean check(int select, int max) {
+        return 0 <= select && select <= max;
+    }
+
 }
