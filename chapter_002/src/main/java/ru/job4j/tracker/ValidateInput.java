@@ -22,10 +22,15 @@ public class ValidateInput implements Input {
                 invalid = false;
             } catch (IllegalStateException moe) {
                 System.out.println("Please select key from menu ");
-            } catch (ArrayIndexOutOfBoundsException nfe) {
-                System.out.print("\"Please enter validate data again.\"");
+            } catch (NumberFormatException nfe) {
+                System.out.print(String.format("%s", "Please enter validate data again."));
             }
         } while (invalid);
         return value;
+    }
+
+    @Override
+    public int askInt(String question) {
+        return 0;
     }
 }
