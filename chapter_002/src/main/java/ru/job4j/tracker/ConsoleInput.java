@@ -14,10 +14,10 @@ public class ConsoleInput implements Input {
     public int askInt(String question) {
         return Integer.parseInt(askStr(question));
     }
-    public int askInt(String question, int max) {
+    public int askInt(String question, int range) {
         int select = askInt(question);
-        if (!this.check(select, max)) {
-            throw new IllegalStateException(String.format("Out of about %s > [0, %s]", select, max));
+        if (!this.check(select, range)) {
+            throw new MenuOutException(String.format("Out of about %s > [0, %s]", select, range));
         }
         return select;
     }
@@ -26,7 +26,7 @@ public class ConsoleInput implements Input {
         return this.scanner.nextLine();
     }
     public boolean check(int select, int max) {
-        return 0 <= select && select <= max;
+        return 0 <= select && select < max;
     }
 
 }
