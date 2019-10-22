@@ -1,12 +1,13 @@
 package ru.job4j.tracker;
 
-public class ReplaceAction implements UserAction {
-    public String name() {
-        return "=====Replace by id=====";
+public class ReplaceAction extends BaseAction {
+
+    public ReplaceAction(int key, String name) {
+        super(key, name);
     }
     public boolean execute(Input input, Tracker tracker) {
-        String id = input.askStr("Enter id: ");
-        String newName = input.askStr("Enter a new name: ");
+        String id = input.askStr("Введите ID: ");
+        String newName = input.askStr("Введите новое имя: ");
         Item newItem = new Item(newName);
         tracker.replace(id, newItem);
         return true;

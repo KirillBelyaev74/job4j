@@ -11,7 +11,7 @@ public class StubInput implements Input {
     public int askInt(String question) {
         return Integer.parseInt(askStr(question));
     }
-    public int askInt(String question, int max) {
+    public int askInt(String question, int range) {
         return askInt(question);
     }
     public String askStr(String question) {

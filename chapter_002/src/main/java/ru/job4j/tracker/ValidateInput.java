@@ -13,17 +13,17 @@ public class ValidateInput implements Input {
     }
 
     @Override
-    public int askInt(String question, int max) {
+    public int askInt(String question, int range) {
         boolean invalid = true;
         int value = -1;
         do {
             try {
-                value = input.askInt(question, max);
+                value = input.askInt(question, range);
                 invalid = false;
-            } catch (IllegalStateException moe) {
-                System.out.println("Please select key from menu ");
+            } catch (MenuOutException moe) {
+                System.out.println("Выберите пункт из меню!");
             } catch (NumberFormatException nfe) {
-                System.out.print(String.format("%s", "Please enter validate data again."));
+                System.out.println(String.format("%s", "Выберите пункт из меню!"));
             }
         } while (invalid);
         return value;
