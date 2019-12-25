@@ -2,6 +2,7 @@ package ru.job4j.list;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,10 +26,13 @@ public class ConvertMatrix2ListTest {
 
     @Test
     public void when2ArrayToThen1Array() {
-        ConvertMatrix2List list = new ConvertMatrix2List();
-        list.add(new int[]{1, 2});
-        list.add(new int[]{3, 4, 5, 6});
-        List<Integer> result = list.convert();
+        ConvertMatrix2List convertMatrix2List = new ConvertMatrix2List();
+        List<int[]> input = new ArrayList<>();
+        int[] firstArray = new int[]{1,2};
+        int[] secondArray = new int[]{3,4,5,6};
+        input.add(firstArray);
+        input.add(secondArray);
+        List<Integer> result = convertMatrix2List.convert(input);
         List<Integer> expect = Arrays.asList(1, 2, 3, 4, 5, 6);
         assertThat(result, is(expect));
     }
