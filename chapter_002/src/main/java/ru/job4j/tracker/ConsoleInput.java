@@ -1,4 +1,5 @@
 package ru.job4j.tracker;
+
 import java.util.Scanner;
 
 public class ConsoleInput implements Input {
@@ -14,6 +15,7 @@ public class ConsoleInput implements Input {
     public int askInt(String question) {
         return Integer.parseInt(askStr(question));
     }
+
     public int askInt(String question, int range) {
         int select = askInt(question);
         if (!this.check(select, range)) {
@@ -21,10 +23,12 @@ public class ConsoleInput implements Input {
         }
         return select;
     }
+
     public String askStr(String question) {
         System.out.println(question);
         return this.scanner.nextLine();
     }
+
     public boolean check(int select, int max) {
         return 0 <= select && select < max;
     }
