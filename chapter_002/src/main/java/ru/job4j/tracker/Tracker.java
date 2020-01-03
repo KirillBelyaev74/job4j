@@ -1,13 +1,14 @@
 package ru.job4j.tracker;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Tracker {
     /**
      * Массив для хранение заявок.
      */
-    private final ArrayList<Item> items = new ArrayList<>();
+    private final List<Item> items = new ArrayList<>();
 
     /**
      * Метод реализаущий добавление заявки в хранилище
@@ -28,9 +29,9 @@ public class Tracker {
      */
     public boolean delete(String id) {
         boolean result = false;
-        for (Item item : this.items) {
-            if (item.getId().equals(id)) {
-                this.items.remove(item);
+        for (int index = 0; index != this.items.size(); index++) {
+            if (this.items.get(index).getId().equals(id)) {
+                this.items.remove(index);
                 result = true;
                 break;
             }
@@ -63,7 +64,7 @@ public class Tracker {
      *
      * @return - массив без null элементов
      */
-    public ArrayList<Item> findAll() {
+    public List<Item> findAll() {
         return this.items;
     }
 
@@ -73,8 +74,8 @@ public class Tracker {
      * @param key - имя заявки
      * @return - найденная заявка
      */
-    public ArrayList<Item> findByName(String key) {
-        ArrayList<Item> result = new ArrayList<>();
+    public List<Item> findByName(String key) {
+        List<Item> result = new ArrayList<>();
         for (Item item : this.items) {
             if (item.getName().equals(key)) {
                 result.add(item);
