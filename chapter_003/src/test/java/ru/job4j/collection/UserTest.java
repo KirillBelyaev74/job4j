@@ -41,12 +41,32 @@ public class UserTest {
     }
 
     @Test
-    public void whenCompatorByAge() {
+    public void whenCompatorByAgeLess() {
         Comparator<User> comparator = new UserByAgeLess();
         int result = comparator.compare(
                 new User("Petr", 1),
                 new User("Ivan", 0)
         );
         assertThat(result, greaterThan(0));
+    }
+
+    @Test
+    public void whenCompatorByNameAndAgeLess() {
+        Comparator<User> comparator = new UserByAgeLess().thenComparing(new UserByNameLess());
+        int result = comparator.compare(
+                new User("Petr", 1),
+                new User("Ivan", 0)
+        );
+        assertThat(result, greaterThan(0));
+    }
+
+    @Test
+    public void whenCompatorByNameAndAgeMore() {
+        Comparator<User> comparator = new UserByAgeMore().thenComparing(new UserByNameMore());
+        int result = comparator.compare(
+                new User("Petr", 1),
+                new User("Ivan", 0)
+        );
+        assertThat(result, lessThan(0));
     }
 }
