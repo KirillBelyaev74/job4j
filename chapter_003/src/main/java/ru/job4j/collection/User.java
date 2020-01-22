@@ -2,7 +2,7 @@ package ru.job4j.collection;
 
 import java.util.Objects;
 
-public class User{
+public class User {
     private String name;
     private int age;
 
@@ -21,11 +21,15 @@ public class User{
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         User user = (User) o;
-        return age == user.age &&
-                Objects.equals(name, user.name);
+        return age == user.age
+                && Objects.equals(name, user.name);
     }
 
     @Override

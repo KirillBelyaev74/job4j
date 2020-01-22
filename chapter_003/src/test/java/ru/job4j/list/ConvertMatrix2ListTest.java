@@ -28,8 +28,8 @@ public class ConvertMatrix2ListTest {
     public void when2ArrayToThen1Array() {
         ConvertMatrix2List convertMatrix2List = new ConvertMatrix2List();
         List<int[]> input = new ArrayList<>();
-        int[] firstArray = new int[]{1,2};
-        int[] secondArray = new int[]{3,4,5,6};
+        int[] firstArray = new int[]{1, 2};
+        int[] secondArray = new int[]{3, 4, 5, 6};
         input.add(firstArray);
         input.add(secondArray);
         List<Integer> result = convertMatrix2List.convert(input);
