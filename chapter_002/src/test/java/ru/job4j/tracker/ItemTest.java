@@ -11,7 +11,7 @@ import static org.junit.Assert.assertThat;
 
 public class ItemTest {
     @Test
-    public void whenFirstSecondThenFirstSecond(){
+    public void whenFirstSecondThenFirstSecond() {
         Item first = new Item("Petr");
         Item second = new Item("Ivan");
         Item third = new Item("Artem");
@@ -25,7 +25,7 @@ public class ItemTest {
         assertThat(result, is(expect));
     }
     @Test
-    public void whenFirstSecondThenSecondFirst(){
+    public void whenFirstSecondThenSecondFirst() {
         Item first = new Item("Artem");
         Item second = new Item("Petr");
         Item third = new Item("Ivan");
