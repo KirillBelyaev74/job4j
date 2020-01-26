@@ -18,11 +18,11 @@ public class PointTest {
     public void whenShowInfo() {
         Point first = new Point(1, 1);
         Point second = new Point(2, 2);
-        double result = first.distance(second);
+        double result = Math.round(first.distance(second) * 100.0) / 100.0;
         first.info();
         second.info();
         System.out.println(String.format("Result is %s", result));
-        assertThat(result, is(1D));
+        assertThat(result, is(1.41D));
     }
     @Test
     public void when1And2() {
