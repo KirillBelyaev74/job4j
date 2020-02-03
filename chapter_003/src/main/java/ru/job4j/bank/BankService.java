@@ -6,15 +6,16 @@ public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
 
     public void addUser(User user) {
-        if (!this.users.containsKey(user)) {
-            this.users.put(user, new ArrayList<Account>());
-        }
+        this.users.putIfAbsent(user, new ArrayList<>());
     }
 
     public void addAccount(String passport, Account account) {
-        List<Account> result = this.users.get(this.findByPassport(passport));
-        if (!result.contains(account)) {
-            this.users.get(this.findByPassport(passport)).add(account);
+        User user = this.findByPassport(passport);
+        if(user != null) {
+            List<Account> result = this.users.get(user);
+            if (!result.contains(account)) {
+                this.users.get(this.findByPassport(passport)).add(account);
+            }
         }
     }
 
@@ -23,6 +24,7 @@ public class BankService {
         for (User user : users.keySet()) {
             if (user.getPassport().equals(passport)) {
                 result = user;
+                break;
             }
         }
         return result;
@@ -34,6 +36,7 @@ public class BankService {
         for (Account acc : accounts) {
             if (acc.getRequisite().equals(requisite)) {
                 result = acc;
+                break;
             }
         }
         return result;
@@ -44,10 +47,8 @@ public class BankService {
         boolean rsl = false;
         Account srcAccount = this.findByRequisite(srcPassport, srcRequisite);
         Account destAccount = this.findByRequisite(destPassport, dеstRequisite);
-        if (srcAccount.getBalance() >= amount) {
-            srcAccount.setBalance(srcAccount.getBalance() - amount);
-            destAccount.setBalance(destAccount.getBalance() + amount);
-            rsl = true;
+        if(srcAccount != null && destAccount != null) {
+            rsl = srcAccount.transferMoney(destAccount, amount);
         }
         return rsl;
     }
