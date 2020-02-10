@@ -9,6 +9,7 @@ public class StubInput implements Input {
     public StubInput(ArrayList<String> numberMenu) {
         this.numberMenu = numberMenu;
     }
+
     public int askInt(String question) {
         return Integer.parseInt(askStr(question));
     }
