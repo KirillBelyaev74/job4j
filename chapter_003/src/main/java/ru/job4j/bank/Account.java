@@ -46,7 +46,7 @@ public class Account {
 
     public boolean transferMoney(Account destAccount, double amount) {
         boolean result = false;
-        if(this.getBalance() >= amount) {
+        if (this.getBalance() >= amount) {
             this.setBalance(this.getBalance() - amount);
             destAccount.setBalance(destAccount.getBalance() + amount);
             result = true;

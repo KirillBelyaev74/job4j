@@ -11,10 +11,10 @@ public class BankService {
 
     public void addAccount(String passport, Account account) {
         User user = this.findByPassport(passport);
-        if(user != null) {
+        if (user != null) {
             List<Account> result = this.users.get(user);
             if (!result.contains(account)) {
-                this.users.get(this.findByPassport(passport)).add(account);
+                this.users.get(user).add(account);
             }
         }
     }
@@ -47,7 +47,7 @@ public class BankService {
         boolean rsl = false;
         Account srcAccount = this.findByRequisite(srcPassport, srcRequisite);
         Account destAccount = this.findByRequisite(destPassport, dеstRequisite);
-        if(srcAccount != null && destAccount != null) {
+        if (srcAccount != null && destAccount != null) {
             rsl = srcAccount.transferMoney(destAccount, amount);
         }
         return rsl;
