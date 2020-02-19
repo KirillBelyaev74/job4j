@@ -9,11 +9,11 @@ public class Profiles {
 
     public List<Address> collect(List<Profile> profiles) {
 
-        List<Address> result = new ArrayList<>();
-        if (!profiles.isEmpty()) {
-            result = profiles.stream().sorted(Comparator.comparing(p -> p.getAddress().getStreet())).map(Profile::getAddress).collect(Collectors.toList());
-        }
-
-        return result;
+        return profiles
+                .stream()
+                .sorted(Comparator.comparing(p -> p.getAddress().getCity()))
+                .map(Profile::getAddress)
+                .distinct()
+                .collect(Collectors.toList());
     }
 }
