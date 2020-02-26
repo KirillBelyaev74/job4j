@@ -1,6 +1,7 @@
 package ru.job4j.bank;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
@@ -10,36 +11,44 @@ public class BankService {
     }
 
     public void addAccount(String passport, Account account) {
-        User user = this.findByPassport(passport);
-        if (user != null) {
-            List<Account> result = this.users.get(user);
-            if (!result.contains(account)) {
-                this.users.get(user).add(account);
-            }
-        }
+        this.users.entrySet()
+                .stream()
+                .filter(user -> passport.equals(user.getKey().getPassport()))
+                .filter(acc -> !acc.getValue().contains(account))
+                .findFirst()
+                .ifPresent(x -> x.getValue().add(account));
     }
 
     public User findByPassport(String passport) {
-        User result = null;
-        for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                result = user;
-                break;
-            }
-        }
-        return result;
+        return this.findListPassport(passport)
+                .stream()
+                .findFirst()
+                .orElse(null);
+    }
+
+    public List<User> findListPassport(String passport) {
+        return this.users.entrySet()
+                .stream()
+                .filter(x -> x.getKey().getPassport().equals(passport))
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
     }
 
     public Account findByRequisite(String passport, String requisite) {
-        List<Account> accounts = this.users.get(this.findByPassport(passport));
-        Account result = null;
-        for (Account acc : accounts) {
-            if (acc.getRequisite().equals(requisite)) {
-                result = acc;
-                break;
-            }
-        }
-        return result;
+        return this.findListRequisite(passport, requisite)
+                .stream()
+                .flatMap(List::stream)
+                .filter(account -> account.getRequisite().equals(requisite))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public List<List<Account>> findListRequisite(String passport, String requisite) {
+        return this.users.entrySet()
+                .stream()
+                .filter(x -> x.getKey().getPassport().equals(passport))
+                .map(Map.Entry::getValue)
+                .collect(Collectors.toList());
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
