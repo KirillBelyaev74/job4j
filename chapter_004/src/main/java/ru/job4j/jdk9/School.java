@@ -10,8 +10,8 @@ public class School {
 
         return students
                 .stream()
-                .sorted(Student::compareTo)
                 .flatMap(Stream::ofNullable)
+                .sorted(Student::compareTo)
                 .takeWhile(student -> student.getScope() >= bound)
                 .collect(Collectors.toList());
     }
