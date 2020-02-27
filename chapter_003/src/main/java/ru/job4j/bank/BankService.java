@@ -11,12 +11,12 @@ public class BankService {
     }
 
     public void addAccount(String passport, Account account) {
-        this.users.entrySet()
-                .stream()
-                .filter(user -> passport.equals(user.getKey().getPassport()))
-                .filter(acc -> !acc.getValue().contains(account))
-                .findFirst()
-                .ifPresent(x -> x.getValue().add(account));
+        User user = this.findByPassport(passport);
+        if(user != null) {
+            if(!this.users.get(user).contains(account)) {
+                this.users.get(user).add(account);
+            }
+        }
     }
 
     public User findByPassport(String passport) {
@@ -35,7 +35,7 @@ public class BankService {
     }
 
     public Account findByRequisite(String passport, String requisite) {
-        return this.findListRequisite(passport, requisite)
+        return this.findListRequisite(passport)
                 .stream()
                 .flatMap(List::stream)
                 .filter(account -> account.getRequisite().equals(requisite))
@@ -43,7 +43,7 @@ public class BankService {
                 .orElse(null);
     }
 
-    public List<List<Account>> findListRequisite(String passport, String requisite) {
+    public List<List<Account>> findListRequisite(String passport) {
         return this.users.entrySet()
                 .stream()
                 .filter(x -> x.getKey().getPassport().equals(passport))
