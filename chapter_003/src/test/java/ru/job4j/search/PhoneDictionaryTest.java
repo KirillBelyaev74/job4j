@@ -9,9 +9,10 @@ public class PhoneDictionaryTest {
     @Test
     public void whenFindByName() {
         PhoneDictionary phones = new PhoneDictionary();
+
         phones.add(new Person("Petr", "Arsentev", "534872", "Bryansk"));
         phones.add(new Person("Kirill", "Belyaev", "123456", "Chelybinsk"));
-        List<Person> persons = phones.find("Petr");
+        var persons = phones.find("Petr");
         assertThat(persons.iterator().next().getSurname(), is("Arsentev"));
     }
 }
