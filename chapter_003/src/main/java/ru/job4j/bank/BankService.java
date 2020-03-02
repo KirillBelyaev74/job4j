@@ -20,18 +20,12 @@ public class BankService {
     }
 
     public User findByPassport(String passport) {
-        return this.findListPassport(passport)
-                .stream()
-                .findFirst()
-                .orElse(null);
-    }
-
-    public List<User> findListPassport(String passport) {
-        return this.users.entrySet()
+        List<User> result = this.users.entrySet()
                 .stream()
                 .filter(x -> x.getKey().getPassport().equals(passport))
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toList());
+        return result.get(0);
     }
 
     public Account findByRequisite(String passport, String requisite) {
