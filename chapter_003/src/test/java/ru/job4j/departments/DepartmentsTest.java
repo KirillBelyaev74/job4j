@@ -54,4 +54,20 @@ public class DepartmentsTest {
         List<String> result = Departments.sortDesc(input);
         assertThat(result, is(expect));
     }
+
+    @Test
+    public void whenFillGaps() {
+        List<String> input = Arrays.asList("k1/sk1");
+        List<String> expect = Arrays.asList("k1", "k1/sk1");
+        List<String> result = Departments.sortAsc(input);
+        assertThat(result, is(expect));
+    }
+
+    @Test
+    public void whenDescCompare() {
+        List<String> input = Arrays.asList("k2/sk1", "k2");
+        List<String> expect = Arrays.asList("k2", "k2/sk1");
+        List<String> result = Departments.sortAsc(input);
+        assertThat(result, is(expect));
+    }
 }

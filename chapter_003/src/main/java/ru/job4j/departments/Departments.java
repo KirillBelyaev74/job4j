@@ -16,23 +16,17 @@ public class Departments {
     }
 
     public static List<String> sortAsc(List<String> orgs) {
-        List<String> result = Departments.addString(Departments.fillGaps(orgs));
-        Collections.sort(result);
-        return result;
-    }
-
-    public static List<String> sortDesc(List<String> orgs) {
-        List<String> result = Departments.addString(Departments.fillGaps(orgs));
-        result.sort(new DepDescComp());
-        return result;
-    }
-
-    public static List<String> addString(List<String> orgs) {
-        List<String> result = new ArrayList<>(orgs);
+        List<String> result = Departments.fillGaps(orgs);
         Collections.sort(result);
         for(int index = 1; index != result.size(); index++) {
             result.set(index, result.get(index - 1) + "/" + result.get(index));
         }
+        return result;
+    }
+
+    public static List<String> sortDesc(List<String> orgs) {
+        List<String> result = Departments.sortAsc(orgs);
+        result.sort(new DepDescComp());
         return result;
     }
 }
