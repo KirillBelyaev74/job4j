@@ -11,7 +11,7 @@ public class DepartmentsTest {
     public void whenMissedSortAsc() {
         List<String> input = Arrays.asList("k1/sk1");
         List<String> expect = Arrays.asList("k1", "k1/sk1");
-        List<String> result = Departments.sortAsc(input);
+        List<String> result = Departments.fillGaps(input);
         assertThat(result, is(expect));
     }
 
@@ -19,7 +19,7 @@ public class DepartmentsTest {
     public void whenNonChangeOneSortAsc() {
         List<String> input = Arrays.asList("k1", "k1/sk1");
         List<String> expect = Arrays.asList("k1", "k1/sk1");
-        List<String> result = Departments.sortAsc(input);
+        List<String> result = Departments.fillGaps(input);
         assertThat(result, is(expect));
     }
 
@@ -27,7 +27,7 @@ public class DepartmentsTest {
     public void whenNonChangeTwoSortAsc() {
         List<String> input = Arrays.asList("k1", "k1/sk1", "k1/sk1/ssk1");
         List<String> expect = Arrays.asList("k1", "k1/sk1", "k1/sk1/ssk1");
-        List<String> result = Departments.sortAsc(input);
+        List<String> result = Departments.fillGaps(input);
         assertThat(result, is(expect));
     }
 
@@ -59,7 +59,7 @@ public class DepartmentsTest {
     public void whenFillGaps() {
         List<String> input = Arrays.asList("k1/sk1");
         List<String> expect = Arrays.asList("k1", "k1/sk1");
-        List<String> result = Departments.sortAsc(input);
+        List<String> result = Departments.fillGaps(input);
         assertThat(result, is(expect));
     }
 
@@ -67,7 +67,7 @@ public class DepartmentsTest {
     public void whenDescCompare() {
         List<String> input = Arrays.asList("k2/sk1", "k2");
         List<String> expect = Arrays.asList("k2", "k2/sk1");
-        List<String> result = Departments.sortAsc(input);
+        List<String> result = Departments.fillGaps(input);
         assertThat(result, is(expect));
     }
 }
