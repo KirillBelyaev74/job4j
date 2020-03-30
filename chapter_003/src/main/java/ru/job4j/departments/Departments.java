@@ -14,7 +14,7 @@ public class Departments {
         }
         List<String> result = new ArrayList<>(tmp);
         Collections.sort(result);
-        for(int index = 1; index != result.size(); index++) {
+        for (int index = 1; index != result.size(); index++) {
             result.set(index, result.get(index - 1) + "/" + result.get(index));
         }
         return result;
