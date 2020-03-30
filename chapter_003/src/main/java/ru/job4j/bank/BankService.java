@@ -40,10 +40,10 @@ public class BankService {
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
-                                 String destPassport, String dеstRequisite, double amount) {
+                                 String destPassport, String requisite, double amount) {
         boolean rsl = false;
         Account srcAccount = this.findByRequisite(srcPassport, srcRequisite);
-        Account destAccount = this.findByRequisite(destPassport, dеstRequisite);
+        Account destAccount = this.findByRequisite(destPassport, requisite);
         if (srcAccount != null && destAccount != null) {
             rsl = srcAccount.transferMoney(destAccount, amount);
         }

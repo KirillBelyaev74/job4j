@@ -2,7 +2,7 @@ package ru.job4j.jdk9;
 
 import java.util.Objects;
 
-public class Student  implements Comparable<Student> {
+public class Student implements Comparable<Student> {
 
     private String name;
     private int scope;
@@ -30,11 +30,15 @@ public class Student  implements Comparable<Student> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Student student = (Student) o;
-        return scope == student.scope &&
-                Objects.equals(name, student.name);
+        return scope == student.scope
+                && Objects.equals(name, student.name);
     }
 
     @Override

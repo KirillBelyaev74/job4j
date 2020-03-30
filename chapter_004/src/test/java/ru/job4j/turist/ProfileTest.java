@@ -23,18 +23,18 @@ public class ProfileTest {
         Address addressSixth = new Address("Magnitogorsk", "Kalinina", 30, 20);
 
         List<Profile> value = List.of(
-                new Profile(addressFirst)
-                , new Profile(addressSecond)
-                , new Profile(addressThird)
-                , new Profile(addressFourth)
-                , new Profile(addressFifth)
-                , new Profile(addressSixth));
+                new Profile(addressFirst),
+                new Profile(addressSecond),
+                new Profile(addressThird),
+                new Profile(addressFourth),
+                new Profile(addressFifth),
+                new Profile(addressSixth));
 
         List<Address> result = profiles.collect(value);
 
         List<Address> expect = List.of(addressThird, addressFirst, addressFifth);
 
-        for(int index = 0; index != expect.size(); index++) {
+        for (int index = 0; index != expect.size(); index++) {
             assertThat(result.get(index).getCity(), is(expect.get(index).getCity()));
         }
     }
