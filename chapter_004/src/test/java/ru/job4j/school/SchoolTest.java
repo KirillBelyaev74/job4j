@@ -15,7 +15,7 @@ public class SchoolTest {
 
         Student petr = new Student("Petr", 80);
         Student kirill = new Student("Kirill", 60);
-        Student kostya = new Student("Kostya",30);
+        Student kostya = new Student("Kostya", 30);
 
         List<Student> student = Arrays.asList(petr, kirill, kostya);
 
