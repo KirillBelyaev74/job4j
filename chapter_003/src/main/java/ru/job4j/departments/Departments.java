@@ -13,7 +13,7 @@ public class Departments {
             }
         }
         List<String> result = new ArrayList<>(tmp);
-        Collections.sort(result);
+        result.sort(new DepDescComp());
         for (int index = 1; index != result.size(); index++) {
             result.set(index, result.get(index - 1) + "/" + result.get(index));
         }
@@ -22,7 +22,7 @@ public class Departments {
 
     public static List<String> sortDesc(List<String> orgs) {
         List<String> result = Departments.fillGaps(orgs);
-        result.sort(new DepDescComp());
+        Collections.reverse(result);
         return result;
     }
 }
