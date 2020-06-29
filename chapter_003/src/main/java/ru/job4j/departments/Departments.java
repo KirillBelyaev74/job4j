@@ -4,25 +4,27 @@ import java.util.*;
 
 public class Departments {
 
-    public static List<String> fillGaps(List<String> deps) {
+    public static ArrayList<String> fillGaps(List<String> deps) {
         HashSet<String> tmp = new HashSet<>();
         for (String value : deps) {
-            String start = "";
+            StringBuilder start = new StringBuilder();
             for (String el : value.split("/")) {
                 tmp.add(start + el);
+                start.append(el).append("/");
             }
         }
-        List<String> result = new ArrayList<>(tmp);
-        result.sort(new DepDescComp());
-        for (int index = 1; index != result.size(); index++) {
-            result.set(index, result.get(index - 1) + "/" + result.get(index));
-        }
-        return result;
+        return new ArrayList<>(tmp);
     }
 
-    public static List<String> sortDesc(List<String> orgs) {
-        List<String> result = Departments.fillGaps(orgs);
-        Collections.reverse(result);
-        return result;
+    public static List sortDesc(List<String> orgs) {
+        orgs = fillGaps(orgs);
+        Collections.sort(orgs, new DepDescComp());
+        return orgs;
+    }
+
+    public static List sortAsc(List<String> orgs) {
+        orgs = fillGaps(orgs);
+        Collections.sort(orgs, new DepAscComp());
+        return orgs;
     }
 }
