@@ -6,17 +6,17 @@ class DepAscComp implements Comparator<String> {
 
     @Override
     public int compare(String o1, String o2) {
-        char[] first = o1.toCharArray();
-        char[] second = o2.toCharArray();
+        String[] first = o1.split("/");
+        String[] second = o2.split("/");
         int result = 0;
-        for (int index = 0; index != o1.length() && index != o2.length(); index++) {
-            result = Character.compare(second[index], first[index]);
+        for (int index = 0; index != first.length && index != second.length; index++) {
+            result = second[index].compareTo(first[index]);
             if (result != 0) {
                 break;
             }
         }
         if (result == 0) {
-            result = o1.length() - o2.length();
+            result = o1.compareTo(o2);
         }
         return result;
     }

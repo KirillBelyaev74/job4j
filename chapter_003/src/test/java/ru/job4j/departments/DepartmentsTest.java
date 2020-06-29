@@ -29,8 +29,7 @@ public class DepartmentsTest {
                 "K2/SK1/SSK1",
                 "K2/SK1/SSK2"
         );
-        List<String> result = Departments.sortDesc(input);
-        assertThat(result, is(expect));
+        assertThat(Departments.sortDesc(input), is(expect));
     }
 
     @Test
@@ -54,7 +53,6 @@ public class DepartmentsTest {
                 "K1/SK1/SSK2",
                 "K1/SK1/SSK1"
         );
-        List<String> result = Departments.sortAsc(input);
-        assertThat(result, is(expect));
+        assertThat(Departments.sortAsc(input), is(expect));
     }
 }
