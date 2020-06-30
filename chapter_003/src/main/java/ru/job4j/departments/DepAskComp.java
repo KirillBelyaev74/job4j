@@ -15,9 +15,6 @@ class DepAscComp implements Comparator<String> {
                 break;
             }
         }
-        if (result == 0) {
-            result = o1.compareTo(o2);
-        }
-        return result;
+        return result == 0 ? o1.compareTo(o2) : result;
     }
 }
