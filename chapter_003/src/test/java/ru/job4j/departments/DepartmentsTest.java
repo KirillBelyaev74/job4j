@@ -29,7 +29,7 @@ public class DepartmentsTest {
                 "K2/SK1/SSK1",
                 "K2/SK1/SSK2"
         );
-        assertThat(Departments.sortDesc(input), is(expect));
+        assertThat(Departments.sortAsc(Departments.fillGaps(input)), is(expect));
     }
 
     @Test
@@ -45,14 +45,14 @@ public class DepartmentsTest {
         List<String> expect = List.of(
                 "K2",
                 "K2/SK1",
-                "K2/SK1/SSK2",
                 "K2/SK1/SSK1",
+                "K2/SK1/SSK2",
                 "K1",
-                "K1/SK2",
                 "K1/SK1",
+                "K1/SK1/SSK1",
                 "K1/SK1/SSK2",
-                "K1/SK1/SSK1"
+                "K1/SK2"
         );
-        assertThat(Departments.sortAsc(input), is(expect));
+        assertThat(Departments.sortDesc(Departments.fillGaps(input)), is(expect));
     }
 }
