@@ -1,14 +1,9 @@
-# Idea
-
-*.iml
 .idea
-
 target
-
 out
 
 *.jar
 *.war
 *.ear
-
 *.log
+*.iml
